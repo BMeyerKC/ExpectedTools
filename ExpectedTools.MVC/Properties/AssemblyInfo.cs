@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ExpectedTools.MVC")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The tools expected for MVC")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("bmeyerkc")]
 [assembly: AssemblyProduct("ExpectedTools.MVC")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
