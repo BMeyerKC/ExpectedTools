@@ -13,12 +13,12 @@
     <copyright>Copyright 2013</copyright>
     <tags>Tools MVC</tags>
     <dependencies>
-        <group>
-            <dependency id="Microsoft.AspNet.Mvc" version="4.0.30506.0" targetFramework="net45" />
-            <dependency id="Microsoft.AspNet.Razor" version="2.0.30506.0" targetFramework="net45" />
-            <dependency id="Microsoft.AspNet.WebPages" version="2.0.30506.0" targetFramework="net45" />
-            <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" targetFramework="net45" />
-            <dependency id="Newtonsoft.Json" version="5.0.6" targetFramework="net45" />
+        <group targetFramework="net45">
+            <dependency id="Microsoft.AspNet.Mvc" version="4.0.30506.0"  />
+            <dependency id="Microsoft.AspNet.Razor" version="2.0.30506.0" />
+            <dependency id="Microsoft.AspNet.WebPages" version="2.0.30506.0" />
+            <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" />
+            <dependency id="Newtonsoft.Json" version="5.0.6" />
         </group>
     </dependencies>
   </metadata>
