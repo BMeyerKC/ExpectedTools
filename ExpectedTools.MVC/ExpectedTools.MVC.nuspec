@@ -9,7 +9,6 @@
     <projectUrl>https://github.com/BMeyerKC/ExpectedTools/wiki</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Expected Tools for MVC</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>Copyright 2013</copyright>
     <tags>Tools MVC</tags>
     <dependencies>
@@ -23,8 +22,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\*.dll" target="lib" /> 
-    <file src="bin\Release\*.pdb" target="lib" /> 
-    <file src="tools\**\*.*" exclude="**\*.log" />
+    <file src="bin\Release\*.dll" target="lib\net45" /> 
+    <file src="bin\Release\*.pdb" target="lib\net45" /> 
   </files>
 </package>
