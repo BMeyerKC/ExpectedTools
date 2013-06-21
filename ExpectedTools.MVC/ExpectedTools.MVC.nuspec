@@ -21,10 +21,10 @@
             <dependency id="Newtonsoft.Json" version="5.0.6" />
         </group>
     </dependencies>
-    <files>
-        <file src="bin\Release\*.dll" target="lib" /> 
-        <file src="bin\Release\*.pdb" target="lib" /> 
-        <file src="tools\**\*.*" exclude="**\*.log" />
-    </files>
   </metadata>
+  <files>
+    <file src="bin\Release\*.dll" target="lib" /> 
+    <file src="bin\Release\*.pdb" target="lib" /> 
+    <file src="tools\**\*.*" exclude="**\*.log" />
+  </files>
 </package>
