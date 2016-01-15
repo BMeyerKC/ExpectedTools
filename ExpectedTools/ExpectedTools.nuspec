@@ -3,15 +3,15 @@
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <title>ExpectedTools</title>
+    <authors>bmeyerkc</authors>
+    <owners>bmeyerkc</owners>
     <licenseUrl>http://creativecommons.org/licenses/by/3.0/deed.en_US</licenseUrl>
     <projectUrl>https://github.com/BMeyerKC/ExpectedTools/wiki</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>The base of this package. Includes FormatThis and NullOrEmpty</releaseNotes>
-    <copyright>Copyright 2013</copyright>
+    <releaseNotes>Object Extensions Added</releaseNotes>
+    <copyright>Copyright 2016</copyright>
     <tags>Tools Helpers Extensions</tags>
   </metadata>
 </package>

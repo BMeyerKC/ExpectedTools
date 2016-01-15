@@ -3,7 +3,7 @@ using System.Text;
 
 namespace System
 {
-    public static class EnumerableExtensions
+    public static class IEnumerableExtensions
     {
         public static string ToCommaSeperatedString<T>(this IEnumerable<T> enumerable)
         {
@@ -13,7 +13,7 @@ namespace System
             foreach (var enu in enumerable)
             {
                 var type = enu.GetType();
-                if (type.IsPrimitive || type == typeof (string))
+                if (type.IsPrimitive || type == typeof(string))
                 {
                     sb.AppendFormat("{0},", enu);
                 }
@@ -29,18 +29,24 @@ namespace System
             return sb.ToString().TrimEnd(char.Parse(","));
         }
 
-
-        public static void Shuffle<T>(this IList<T> list)
+        /// <summary>
+        /// Implements a foreach for IEnumerable
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        /// <remarks>DO NOT modify the collection in the Action (e.g. add/remove)</remarks>
+        public static IEnumerable<T> Each<T>(this IEnumerable<T> enumerable, Action<T> action)
         {
-            int n = list.Count;
-            while (n > 1)
+            if (enumerable == null) return enumerable;
+            foreach (T item in enumerable)
             {
-                n--;
-                int k = ThreadSafeExtensions.ThreadSafeRandom.ThisThreadsRandom.Next(n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
+                action(item);
             }
+
+            return enumerable;
         }
+
     }
 }
