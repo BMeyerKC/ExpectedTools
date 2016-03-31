@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="EnumerableExtensions\ToCommaSeperatedString.cs" />
     <Compile Include="StringExtensions\FormatThis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

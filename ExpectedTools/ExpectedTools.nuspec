@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>$version$</version>
+    <version>1.0.1.42</version>
     <title>ExpectedTools</title>
     <authors>bmeyerkc</authors>
     <owners>bmeyerkc</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/BMeyerKC/ExpectedTools/wiki</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Object Extensions Added</releaseNotes>
+    <releaseNotes>DateTime Extensions Added</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>Tools Helpers Extensions</tags>
   </metadata>
