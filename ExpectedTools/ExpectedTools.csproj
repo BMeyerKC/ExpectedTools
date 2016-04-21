@@ -32,13 +32,12 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheLayer.cs" />
     <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="ICollectionExtensions.cs" />
     <Compile Include="IEnumerableExtensions.cs" />
@@ -49,7 +48,13 @@
     <Compile Include="ThreadSafeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ExpectedTools.nuspec" />
+    <None Include="ExpectedTools.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="expected_tools01.jpg" />
+    <Content Include="NugetPacking.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
