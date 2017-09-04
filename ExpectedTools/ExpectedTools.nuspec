@@ -8,10 +8,11 @@
     <owners>bmeyerkc</owners>
     <licenseUrl>http://creativecommons.org/licenses/by/3.0/deed.en_US</licenseUrl>
     <projectUrl>https://github.com/BMeyerKC/ExpectedTools/wiki</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/BMeyerKC/ExpectedTools/master/ExpectedTools/expected_tools01_64.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>DateTime Extensions Added with using</releaseNotes>
-    <copyright>Copyright 2016</copyright>
+    <releaseNotes>Added Encode and Decode for Base64. Update to version number for new reference on System.Runtime.Caching. Removed icon from package.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
     <tags>Tools Helpers Extensions</tags>
   </metadata>
 </package>

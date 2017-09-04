@@ -22,5 +22,15 @@
         {
             return string.IsNullOrEmpty(str);
         }
+
+        public static string ToBase64(this string str)
+        {
+            return Text.Encoding.UTF8.EncodeBase64(str);
+        }
+        public static string FromBase64(this string str)
+        {
+            return Text.Encoding.UTF8.DecodeBase64(str);
+        }
+
     }
 }
