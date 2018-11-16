@@ -216,3 +216,7 @@ pip-log.txt
 ExpectedTools/packages/
 *.nupkg
 *.nupkg
+ExpectedTools/.vs/ExpectedTools/v15/Server/sqlite3/db.lock
+ExpectedTools/.vs/ExpectedTools/v15/Server/sqlite3/storage.ide
+ExpectedTools/.vs/ExpectedTools/v15/Server/sqlite3/storage.ide-shm
+ExpectedTools/.vs/ExpectedTools/v15/Server/sqlite3/storage.ide-wal

@@ -27,10 +27,15 @@
         {
             return Text.Encoding.UTF8.EncodeBase64(str);
         }
+
         public static string FromBase64(this string str)
         {
             return Text.Encoding.UTF8.DecodeBase64(str);
         }
 
+        public static byte[] ToByteArray(this string str)
+        {
+            return Text.Encoding.ASCII.GetBytes(str);
+        }
     }
 }
