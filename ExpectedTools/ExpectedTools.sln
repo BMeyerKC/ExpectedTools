@@ -1,11 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpectedTools", "ExpectedTools.csproj", "{B0B1FF3E-55CA-4B04-8115-441AEA1F40ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\Tests\Tests.csproj", "{CD4AF35C-CB26-4F30-8CF8-F824098CECE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpectedTools.MVC", "..\ExpectedTools.MVC\ExpectedTools.MVC.csproj", "{585EE0D6-3670-4029-A0D2-B7ADE8F3BBE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notes", "notes", "{FC51B8F5-F355-40C0-8599-60C7C2E8137E}"
+	ProjectSection(SolutionItems) = preProject
+		packaging.txt = packaging.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,5 +35,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7ABA9132-1059-4C40-AF42-E2CC9E1A701F}
 	EndGlobalSection
 EndGlobal

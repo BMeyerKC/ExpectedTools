@@ -13,10 +13,8 @@ namespace Tests
         private DateTime _mondayMidnight;
         private DateTime _mondayNoon;
 
+        private DateTime _march = new DateTime(2008, 3, 15); // march 15th
 
-        DateTime _march = new DateTime(2008, 3, 15); // march 15th
-
-        [TestFixtureSetUp]
         public void Setup()
         {
             _monday = new DateTime(2008, 3, 3, 17, 15, 30); // monday 3rd of March, 2008, 17h 15m 30s
@@ -99,7 +97,6 @@ namespace Tests
 
             Assert.AreEqual(DayOfWeek.Monday, expected.DayOfWeek);
             Assert.AreEqual(expected, _march.Last(DayOfWeek.Monday));
-
         }
 
         [Test]

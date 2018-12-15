@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Caching;
-using System.Threading.Tasks;
 
-
-namespace System
+namespace ExpectedTools
 {
     public enum CacheExpirationType
     {
@@ -15,8 +13,8 @@ namespace System
 
     public static class CacheLayer
     {
-        static readonly ObjectCache Cache = MemoryCache.Default;
-        static readonly System.Collections.Concurrent.ConcurrentDictionary<string, Task> InprogressAdds = new System.Collections.Concurrent.ConcurrentDictionary<string, Task>();
+        private static readonly ObjectCache Cache = MemoryCache.Default;
+        // static readonly System.Collections.Concurrent.BlockingCollection<string> InProgressAdds = new System.Collections.Concurrent.BlockingCollection<string>();
 
         /// <summary>
         /// Retrieve cached item
@@ -45,26 +43,36 @@ namespace System
         /// <returns></returns>
         public static T Get<T>(string key, Func<T> f, CacheExpirationType expirationType, TimeSpan expiration) where T : class
         {
-            if (!Cache.Contains(key))
+            var policy = MakePolicy(expirationType, ref expiration);
+
+            //Holy crap! this guy is super cool. http://blog.falafel.com/working-system-runtime-caching-memorycache/
+
+            var newValue = new Lazy<T>(f);
+            var oldValue = Cache.AddOrGetExisting(key, newValue, policy) as Lazy<T>;
+            try
             {
-                if (InprogressAdds.ContainsKey(key))
-                {
-                    var t = InprogressAdds[key];
-                    t.Wait();
-                }
-                else
-                {
-                    var t = new Task(() => Set(f(), key, expirationType, expiration));
-                    if (!InprogressAdds.TryAdd(key, t)) //something else is trying to add
-                    {
-                        return Get<T>(key, f, expirationType, expiration);
-                    }
-                    t.Start();
-                    t.Wait();
-                    InprogressAdds.TryRemove(key, out t);
-                }
+                return (oldValue ?? newValue).Value;
             }
-            return Get<T>(key);
+            catch
+            {
+                // Handle cached lazy exception by evicting from cache. Thanks to Denis Borovnev for pointing this out!
+                Cache.Remove(key);
+                throw;
+            }
+        }
+
+        private static CacheItemPolicy MakePolicy(CacheExpirationType expirationType, ref TimeSpan expiration)
+        {
+            var policy = new CacheItemPolicy();
+            if (expirationType == CacheExpirationType.Absolute)
+            {
+                policy.AbsoluteExpiration = DateTimeOffset.Now.Add(expiration);
+            }
+            else
+            {
+                policy.SlidingExpiration = expiration;
+            }
+            return policy;
         }
 
         /// <summary>
@@ -88,15 +96,7 @@ namespace System
         /// <param name="key">Name of item</param>
         public static void Add<T>(T objectToCache, string key, CacheExpirationType expirationType, TimeSpan expiration) where T : class
         {
-            var policy = new CacheItemPolicy();
-            if (expirationType == CacheExpirationType.Absolute)
-            {
-                policy.AbsoluteExpiration = DateTimeOffset.Now.Add(expiration);
-            }
-            else
-            {
-                policy.SlidingExpiration = expiration;
-            }
+            var policy = MakePolicy(expirationType, ref expiration);
 
             Cache.Add(key, objectToCache, policy);
         }
@@ -111,7 +111,6 @@ namespace System
         {
             Cache.Add(key, objectToCache, new CacheItemPolicy() { SlidingExpiration = TimeSpan.FromMinutes(30) });
         }
-
 
         /// <summary>
         /// Insert/Update value into the cache using
@@ -170,6 +169,16 @@ namespace System
         public static void Clear(string key)
         {
             Cache.Remove(key);
+        }
+
+        public static void ClearAll()
+        {
+            var cacheItems = Cache.ToList();
+
+            foreach (KeyValuePair<String, Object> a in cacheItems)
+            {
+                Cache.Remove(a.Key);
+            }
         }
 
         /// <summary>

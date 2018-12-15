@@ -1,12 +1,12 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using NUnit.Framework;
 
 namespace Tests.StringExtensions
 {
-    [TestFixture]
+    [TestClass]
     public class FormatThis
     {
-        [Test]
+        [TestMethod]
         public void MakesIdenticalCallToStringFormat()
         {
             const string addme = "{0} End";
@@ -17,10 +17,10 @@ namespace Tests.StringExtensions
         }
     }
 
-    [TestFixture]
+    [TestClass]
     public class NullOrEmpty
     {
-        [Test]
+        [TestMethod]
         public void ReturnTrueIfEmpty()
         {
             const string emptyString = "";
@@ -30,7 +30,7 @@ namespace Tests.StringExtensions
             Assert.IsTrue(result);
         }
 
-        [Test]
+        [TestMethod]
         public void ReturnTrueIfNull()
         {
             string nullString = null;
@@ -40,7 +40,7 @@ namespace Tests.StringExtensions
             Assert.IsTrue(result);
         }
 
-        [Test]
+        [TestMethod]
         public void ReturnsFalseIfNotEmpty()
         {
             const string realString = "IHazValue";
