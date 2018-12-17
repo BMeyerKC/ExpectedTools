@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notes", "notes", "{FC51B8F5-F355-40C0-8599-60C7C2E8137E}"
 	ProjectSection(SolutionItems) = preProject
 		packaging.txt = packaging.txt
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Global
