@@ -17,5 +17,14 @@ namespace System
             }
         }
 
+        public static T Random<T>(this IList<T> list)
+        {
+            return list[new Random(DateTime.Now.Millisecond).Next(list.Count - 1)];
+        }
+
+        public static T Random<T>(this IList<T> list, int seed)
+        {
+            return list[new Random(seed).Next(list.Count - 1)];
+        }
     }
 }
