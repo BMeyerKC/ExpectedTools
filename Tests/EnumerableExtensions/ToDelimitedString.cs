@@ -5,16 +5,18 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.EnumerableExtensions
 {
     [TestClass]
-    public class ToCommaSeperatedString
+    public class ToDelimitedString
     {
+        private string testDelimiter = "monkey";
+
         [TestMethod]
         public void CanHandleASimpleArray()
         {
             var testMe = new string[2] { "1", "2" };
 
-            var result = testMe.ToCommaSeperatedString();
+            var result = testMe.ToDelimitedString(testDelimiter);
 
-            const string expected = "1,2";
+            const string expected = "1monkey2";
             Assert.AreEqual(expected, result);
         }
 
@@ -23,7 +25,7 @@ namespace Tests.EnumerableExtensions
         {
             string[] testMe = null;
 
-            var result = testMe.ToCommaSeperatedString();
+            var result = testMe.ToDelimitedString(testDelimiter);
 
             const string expected = "";
             Assert.AreEqual(expected, result);
@@ -34,7 +36,7 @@ namespace Tests.EnumerableExtensions
         {
             var testMe = new List<TestObject>();
 
-            var result = testMe.ToCommaSeperatedString();
+            var result = testMe.ToDelimitedString(testDelimiter);
 
             const string expected = "";
             Assert.AreEqual(expected, result);
@@ -48,9 +50,9 @@ namespace Tests.EnumerableExtensions
             {
                 Name = "Mark"
             });
-            var result = testMe.ToCommaSeperatedString();
+            var result = testMe.ToDelimitedString(testDelimiter);
 
-            const string expected = "Name,Mark";
+            const string expected = "NamemonkeyMark";
             Assert.AreEqual(expected, result);
         }
 

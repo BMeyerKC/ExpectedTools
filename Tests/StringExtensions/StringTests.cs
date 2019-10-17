@@ -18,6 +18,20 @@ namespace Tests.StringExtensions
     }
 
     [TestClass]
+    public class RemoveFromEnd
+    {
+        [TestMethod]
+        public void StringIsRemovedFromEnd()
+        {
+            const string addme = "MonkeyBarFoo";
+
+            var result = addme.RemoveFromEnd("Foo");
+
+            Assert.AreEqual("MonkeyBar", result);
+        }
+    }
+
+    [TestClass]
     public class NullOrEmpty
     {
         [TestMethod]

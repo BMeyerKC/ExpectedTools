@@ -37,5 +37,13 @@
         {
             return Text.Encoding.ASCII.GetBytes(str);
         }
+
+        public static string RemoveFromEnd(this string str, string suffix)
+        {
+            var removeLength = str.Length - suffix.Length;
+            if (removeLength < 0) return str;
+
+            return str.Remove(removeLength);
+        }
     }
 }

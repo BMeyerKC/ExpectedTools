@@ -1,10 +1,10 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
 
 namespace Tests
 {
-    [TestFixture]
+    [TestClass]
     public class DateTimeExtensions
     {
         private DateTime _monday;
@@ -15,6 +15,7 @@ namespace Tests
 
         private DateTime _march = new DateTime(2008, 3, 15); // march 15th
 
+        [TestInitialize]
         public void Setup()
         {
             _monday = new DateTime(2008, 3, 3, 17, 15, 30); // monday 3rd of March, 2008, 17h 15m 30s
@@ -26,25 +27,25 @@ namespace Tests
             _mondayNoon = new DateTime(2008, 3, 3, 12, 0, 0);
         }
 
-        [Test]
+        [TestMethod]
         public void NextWhenDayOfWeekIsAfterCurrentDayOfWeek()
         {
             Assert.AreEqual(_tuesday, _monday.Next(DayOfWeek.Tuesday));
         }
 
-        [Test]
+        [TestMethod]
         public void NextWhenDayOfWeekIsBeforeCurrentDayOfWeek()
         {
             Assert.AreEqual(_nextMonday, _tuesday.Next(DayOfWeek.Monday));
         }
 
-        [Test]
+        [TestMethod]
         public void NextWhenDayOfWeekIsSameAsCurrentDayOfWeek()
         {
             Assert.AreEqual(_nextMonday, _monday.Next(DayOfWeek.Monday));
         }
 
-        [Test]
+        [TestMethod]
         public void FirstDayOfMonth()
         {
             DateTime expected = new DateTime(_monday.Year, _monday.Month, 1);
@@ -52,7 +53,7 @@ namespace Tests
             Assert.AreEqual(expected, _march.First());
         }
 
-        [Test]
+        [TestMethod]
         public void FirstSpecificDayOfMonth()
         {
             DateTime expected = new DateTime(_monday.Year, _monday.Month, 3); // first monday in march 2008
@@ -60,7 +61,7 @@ namespace Tests
             Assert.AreEqual(expected, _march.First(DayOfWeek.Monday));
         }
 
-        [Test]
+        [TestMethod]
         public void FirstSpecificDayOfMonthWhenItIsReallyFirstDayOfMonth()
         {
             DateTime expected = new DateTime(2008, 3, 1); // first saturday in march 2008
@@ -69,7 +70,7 @@ namespace Tests
             Assert.AreEqual(expected, _march.First(DayOfWeek.Saturday));
         }
 
-        [Test]
+        [TestMethod]
         public void LastDayOfMonth()
         {
             DateTime expected = new DateTime(_march.Year, _march.Month, DateTime.DaysInMonth(_march.Year, _march.Month));
@@ -77,7 +78,7 @@ namespace Tests
             Assert.AreEqual(expected, _march.Last());
         }
 
-        [Test]
+        [TestMethod]
         public void LastSpecificDayOfMonth()
         {
             DateTime expected = new DateTime(_march.Year, _march.Month, DateTime.DaysInMonth(_march.Year, _march.Month));
@@ -90,7 +91,7 @@ namespace Tests
             Assert.AreEqual(expected, _march.Last(DayOfWeek.Sunday));
         }
 
-        [Test]
+        [TestMethod]
         public void LastSpecificDayOfMonthWhenItIsReallyLastDayOfMonth()
         {
             DateTime expected = new DateTime(2008, 3, 31); // last day in march 2008 = monday
@@ -99,33 +100,33 @@ namespace Tests
             Assert.AreEqual(expected, _march.Last(DayOfWeek.Monday));
         }
 
-        [Test]
+        [TestMethod]
         public void ResetTimeToMidnight()
         {
             Assert.AreEqual(_mondayMidnight, _monday.Midnight());
         }
 
-        [Test]
+        [TestMethod]
         public void ResetTimeToNoon()
         {
             Assert.AreEqual(_mondayNoon, _monday.Noon());
         }
 
-        [Test]
+        [TestMethod]
         public void SetTimeToMinutePrecision()
         {
             DateTime expected = _mondayMidnight.AddHours(14).AddMinutes(30);
             Assert.AreEqual(expected, _monday.SetTime(14, 30));
         }
 
-        [Test]
+        [TestMethod]
         public void SetTimeToSecondPrecision()
         {
             DateTime expected = _mondayMidnight.AddHours(14).AddMinutes(30).AddSeconds(15);
             Assert.AreEqual(expected, _monday.SetTime(14, 30, 15));
         }
 
-        [Test]
+        [TestMethod]
         public void SetTimeToMillisecondPrecision()
         {
             DateTime expected = _mondayMidnight.AddHours(14).AddMinutes(30).AddSeconds(15).AddMilliseconds(7);

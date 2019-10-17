@@ -58,8 +58,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="EnumerableExtensions\ToDelimitedString.cs" />
     <Compile Include="EnumerableExtensions\ToCommaSeperatedString.cs" />
-    <Compile Include="StringExtensions\FormatThis.cs" />
+    <Compile Include="StringExtensions\StringTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PasswordStorage.cs" />
   </ItemGroup>
