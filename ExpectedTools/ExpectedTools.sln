@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpectedTools", "ExpectedTools.csproj", "{B0B1FF3E-55CA-4B04-8115-441AEA1F40ED}"
 EndProject
@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notes", "notes", "{FC51B8F5
 		packaging.txt = packaging.txt
 		..\README.md = ..\README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETStand", "..\ETStand\ETStand.csproj", "{192034EA-54DE-4FEF-8E73-EE9C77632505}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{585EE0D6-3670-4029-A0D2-B7ADE8F3BBE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{585EE0D6-3670-4029-A0D2-B7ADE8F3BBE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{585EE0D6-3670-4029-A0D2-B7ADE8F3BBE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{192034EA-54DE-4FEF-8E73-EE9C77632505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{192034EA-54DE-4FEF-8E73-EE9C77632505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{192034EA-54DE-4FEF-8E73-EE9C77632505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{192034EA-54DE-4FEF-8E73-EE9C77632505}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
